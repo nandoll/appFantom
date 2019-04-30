@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AppFantom - Dashboard</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="layout layout-vertical layout-left-navigation layout-below-toolbar layout-below-footer">
+
+    <main> 
+      <div id="wrapper">
+        <aside class="aside aside-left" id="aside" data-fuse-bar="aside" data-fuse-bar-media-step="md" data-fuse-bar-position="left">
+          <div class="aside-content bg-primary-700 text-auto">
+            <div class="aside-toolbar">
+              <div class="logo"><span class="logo-icon">F</span><span class="logo-text">Fantom</span></div>
+              <button class="btn btn-icon d-none d-lg-block" id="toggle-fold-aside-button" type="button" data-fuse-aside-toggle-fold><i class="icon icon-backburger"></i></button>
+            </div>
+            <ul class="nav flex-column custom-scrollbar" id="sidenav" data-children=".nav-item">
+              <li class="subheader"><span>FANTOM</span></li>
+              
+              <li class="nav-item"><a class="nav-link ripple active" href="#" data-url="index.html">
+                  <div class="icon s-4 icon-calendar-today"></div><span>Citas</span></a></li>
+
+              <li class="nav-item" id="heading-dashboards" role="tab"><a class="nav-link ripple with-arrow collapsed" href="" data-toggle="collapse" data-target="#collapse-dashboards" aria-expanded="false" aria-controls="collapse-dashboards"><i class="icons s-4 icon-title-four"></i><span>Dashboards</span></a>
+                <ul class="collapse show" id="collapse-dashboards" role="tabpanel" aria-labelledby="heading-dashboards" data-children=".nav-item">
+                  <li class="nav-item"><a class="nav-link ripple" href="#" data-url="index.html"><span>Dashboard</span></a></li>
+                  <li class="nav-item"><a class="nav-link ripple" href="#" data-url="index.html"><span>Citas </span></a></li>
+                </ul>
+              </li>
+              
+            </ul>
+          </div>
+        </aside>
+        <div class="content-wrapper">
+          <nav class="bg-white" id="toolbar">
+            <div class="row no-gutters align-items-center flex-nowrap">
+              <div class="col">
+                <div class="row no-gutters align-items-center flex-nowrap">
+                  <button class="toggle-aside-button btn btn-icon d-block d-lg-none" type="button" data-fuse-bar-toggle="aside"><i class="icon icon-menu"></i></button>
+                  <div class="toolbar-separator d-block d-lg-none"></div>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="row no-gutters align-items-center justify-content-end">
+                  <div class="user-menu-button dropdown">
+                  
+       
+   
+                    <div class="dropdown-toggle ripple row align-items-center no-gutters px-2 px-sm-4" role="button" id="dropdownUserMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <div class="avatar-wrapper"><img class="avatar" src="./assets/img/avatars/profile.jpg" alt="Avatar"><i class="status text-green icon-checkbox-marked-circle s-4"></i></div>
+                      <span class="username mx-3 d-none d-md-block"><% if usuario_signed_in? %> <%= current_usuario.name %>  <%= current_usuario.lastname %><% end %></span>
+                    </div>
+                    
+                    <div class="dropdown-menu" aria-labelledby="dropdownUserMenu">
+                        <a class="dropdown-item" href="">
+                            <div class="row no-gutters align-items-center flex-nowrap">
+                                <div class="icon-account"></div>
+                                <span class="px-3">Perfil</span>
+                            </div>
+                        </a>
+                        <% if usuario_signed_in? %>
+                            <%= link_to ('<div class="row no-gutters align-items-center flex-nowrap"><div class="icon-logout"></div><span class="px-3">Cerrar Sesión</span></div>').html_safe, destroy_usuario_session_path, :method => 'delete', class:"dropdown-item" %>
+                        <% end %>                        
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <div class="content custom-scrollbar">
+            <div id="e-commerce-products" class="page-layout carded full-width">
+                <div class="top-bg bg-primary"></div>
+                 <!-- CONTENT -->
+                 <div class="page-content-wrapper">
+                    <!-- Para el header y el content son dinámicos-->
+                    <%= yield %>
+                 </div>
+                 <!-- / CONTENT -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

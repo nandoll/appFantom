@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dni:</strong>
+  <%= @meeting.dni %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @meeting.name %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @meeting.lastname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @meeting.email %>
+</p>
+
+<p>
+  <strong>Cel:</strong>
+  <%= @meeting.cel %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @meeting.date %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @meeting.status %>
+</p>
+
+<%= link_to 'Edit', edit_meeting_path(@meeting) %> |
+<%= link_to 'Back', meetings_path %>

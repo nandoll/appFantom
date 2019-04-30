@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dni: 1
+  name: MyString
+  lastname: MyString
+  email: MyString
+  cel: MyString
+  date: 2019-04-29 14:30:55
+  status: false
+
+two:
+  dni: 1
+  name: MyString
+  lastname: MyString
+  email: MyString
+  cel: MyString
+  date: 2019-04-29 14:30:55
+  status: false
